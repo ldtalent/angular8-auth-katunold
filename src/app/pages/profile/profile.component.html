@@ -1,0 +1,50 @@
+<div class="container mt-5" *ngIf="auth.userProfile$ | async as profile">
+  <div
+    class="row align-items-center profile-header mb-5 text-center text-md-left"
+  >
+    <div class="col-md-2">
+      <img
+        [src]="profile.picture"
+        class="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+      />
+    </div>
+    <div class="col-md">
+      <h2>{{ profile.name }}</h2>
+      <p class="lead text-muted">{{ profile.email }}</p>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="profileJson">
+    <div class="col-md-8">
+      <table class="table table-dark">
+        <tbody>
+        <tr>
+          <td scope="col">Nickname</td>
+          <td scope="col">{{profileJson.nickname}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Email</td>
+          <td scope="col">{{profileJson.email}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Account Status</td>
+          <td scope="col">{{profileJson.email_verified}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Updated on</td>
+          <td scope="col">{{profileJson.updated_at}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Profile pic</td>
+          <td scope="col"><img
+            [src]="profileJson.picture"
+            alt="Profile picture"
+            style="width: 75px"
+          /></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+<!--    <pre class="rounded"><code class="json" [highlight]="profileJson"></code></pre>-->
+  </div>
+</div>

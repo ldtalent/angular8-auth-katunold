@@ -1,0 +1,26 @@
+<div class="text-center hero my-5">
+  <div *ngIf="auth.loggedIn === false">
+    <img class="mb-3 app-logo" src="../../assets/logo.png" alt="Angular logo" />
+    <h1 class="mb-4">Angular 8 Auth0 project</h1>
+    <p class="lead">
+      This is a sample application that demonstrates an authentication flow for an
+      SPA, using
+      <a href="https://angular.io">Angular</a>
+    </p>
+  </div>
+
+  <div class="lead" *ngIf="auth.userProfile$ | async as profile">
+    <img
+      [src]="profile.picture"
+      alt="Profile picture"
+      class="mb-3 app-logo"
+    />
+    <p class="lead">
+      This is a sample application that demonstrates an authentication flow for an
+      SPA, using
+      <a href="https://angular.io">Angular</a>
+    </p>
+  </div>
+
+</div>
+
